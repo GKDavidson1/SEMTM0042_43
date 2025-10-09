@@ -64,11 +64,15 @@
 // have not followed Supplementary Labsheet 4, these 
 // will cause a compile error in your code.  
 
-//#include "lcd.h"	// Use for the GREEN LCD display
-// LCD_c display;	// Class instance of lcd display
+// Uncomment the next two lines if you will use
+// the GREEN display with 2 rows of pins.
+//#include "lcd.h"
+//LCD_c display(0, 1, 14, 17, 13, 30);
 
-//#include "oled.h"	// Use for the BLUE OLED display
-// OLED_c display;	// Class instance of oled display
+// Uncomment the next two lines if you will use
+// the BLUE display with 1 row of pins.
+//#include "oled.h"
+//OLED_c display(1, 30, 0, 17, 13);
 
 
 // Used for Labsheet 0. Defines which pin the buzzer

@@ -64,6 +64,12 @@ The following Labsheets are supplementary, and therefore are not considered nece
 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/paulodowd/SEMTM0042_43/blob/main/Labsheets/Supp/SL5_ResultsOverSerial.ipynb) | **S. Labsheet 5**: Results over Serial |  Guiding on collecting measurements for experiments and reporting them over Serial.  |
 | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/paulodowd/SEMTM0042_43/blob/main/Labsheets/Supp/SL6_PlottingResults.ipynb) | **S. Labsheet 6**: Plotting Results |  Guidance and examples on plotting using Python and Google Colab.  |
 
-
+# Example Project Proposals
+The following are example proposals for a project for Assessment 2.  For each example proposal, they illustrate the **larger context** of the work.  It is expected that your Team will gain an increased focus on a smaller attribute or characteristic of the system over the Assessment 2 period.  
+|  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    | Project Title |
+|---------------|----------------|----------------|
+| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/paulodowd/SEMTM0042_43/blob/main/Labsheets/Projects/SEMTM0043_Project_1_Box_Pushing.ipynb) | **Project 1:** Box Pushing |
+| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/paulodowd/SEMTM0042_43/blob/main/Labsheets/Projects/SEMTM0043_Project_2_Leader_Follower.ipynb) | **Project 2**: Leader-Follower |
+| [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/paulodowd/SEMTM0042_43/blob/main/Labsheets/Projects/SEMTM0043_Project_3_2D_Localisation.ipynb) | **Project 3**: 2D Localisation |
 
 

@@ -188,8 +188,9 @@ void loop() {
   // Motors.h and fix the code to for other motor 
   // control to work properly.
   // See Labsheet 1
-  motors.setPWM( 25.0, 25.0 );
+//  motors.setPWM( 25.0, 25.0 );
 
+  setForward(100);
 
   // If you are using an OLED or LCD display, 
   // the following will update the display with
@@ -202,3 +203,5 @@ void loop() {
   // Do nothing for half a second
   delay(500);
 }
+
+void setForward(unsigned long runtime){motors.setPWM( 25.0, 25.0 );}

@@ -5,6 +5,12 @@
 |    | | | | `-. | | |-' |-' |      | 
 `--' `-` `-' `-' ' ' `-' `-' `-'    ' 
 *************************************/
+/*NOTES!!! 
+
+HIGH IS FORWARDS
+LOW IS BACKWARDS
+*/
+
 
 // this #ifndef stops this file
 // from being included mored than
@@ -54,8 +60,8 @@ class Motors_c {
       // values, e.g. digitalWrite( <pin>, <HIGH or LOW> );
       // Which pins will be either HIGH or LOW? What
       // purpose do they serve?
-       digitalWrite( L_DIR , HIGH );
-       digitalWrite( R_DIR , HIGH );
+       digitalWrite( L_DIR , LOW );
+       digitalWrite( R_DIR , LOW );
 
       // Uncomment and replace ???? with the correct
       // values, e.g. analogWrite( <pin>, < 0 : 255 > );
@@ -85,18 +91,18 @@ class Motors_c {
       // is less than 0? Recall, how are these motors
       // operated in terms of the pins used?
       if ( left_pwr < 0 ) {
-         digitalWrite( 16, LOW );
-      } else {
          digitalWrite( 16, HIGH );
+      } else {
+         digitalWrite( 16, LOW );
       }
 
       // What should happen if the request for right_pwr
       // is less than 0? Recall, how are these motors
       // operated in terms of the pins used?
       if ( right_pwr < 0 ) {
-         digitalWrite( 15, LOW );
-      } else {
          digitalWrite( 15, HIGH );
+      } else {
+         digitalWrite( 15, LOW );
       }
 
 

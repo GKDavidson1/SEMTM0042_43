@@ -114,6 +114,27 @@ Kinematics_c pose;
 // the USB cable, or activating the motor power.
 // Use this function to do "once only" setup 
 // and configuration of your robot.
+
+
+
+
+
+
+
+
+//==========================================================================================================================================================================
+
+unsigned long forwardInterrupt;
+unsigned long turnInterrupt;
+boolean       movingForward = false;
+boolean       turning = false;
+boolean       finish = false;
+unsigned long haltTime = 5000;
+
+
+
+
+//==========================================================================================================================================================================
 void setup() {
 
   // Setup up the buzzer as an output for
@@ -154,17 +175,21 @@ void setup() {
   Serial.begin(9600);
   delay(2000);
   Serial.println(" *** READY *** ");
+  setForward(1000);
+  
+
+
   
   // If you are using an OLED or LCD display, 
   // the following will set up a count down 
   // timer to be displayed.
   // display.setMaxMinutes(4);
   // display.startStopwatch();
-
+  
 }
 
 
-// put your main code here, to run repeatedly:
+//==========================================================================================================================================================================
 void loop() {
 
   // Used for Labsheet 0
@@ -173,35 +198,82 @@ void loop() {
 //  analogWrite( BUZZER_PIN, 0 ); // off
 //  delay(5);
 
-  // The below is used for Labsheet 1.
-  // using .setPWM() on `motors` means that we
-  // are calling a function defined within 
-  // "motors".  "motors" is just the name we 
-  // have given to an instance (a copy) of the
-  // class (i.e the class is like a template).  
-  //
-  // Here we are sending to the "setPWM()" function
-  // inside the Motors_c class instance "motors"
-  // We pass setPWM the arguments (values) +25 and 
-  // 0.  This should cause your robot to rotate 
-  // around 1 wheel. You will need to review 
-  // Motors.h and fix the code to for other motor 
-  // control to work properly.
-  // See Labsheet 1
+ 
 //  motors.setPWM( 25.0, 25.0 );
 
-  setForward(100);
-
-  // If you are using an OLED or LCD display, 
-  // the following will update the display with
-  // the time remaining in seconds. You can also 
-  // check the return value to see if the time 
-  // has finished.
-  //display.timeRemaining();
+  finish = cease();
   
+  if (movingForward and !finish) {
+  movingForward = checkForward();
+  }
 
-  // Do nothing for half a second
-  delay(500);
+  if (!movingForward and !finish and !turning ){
+    setTurn(1000);
+    }
+
+  if (turning and !finish) {
+   turning = checkTurn;
+    }
+
+  if (finish) {
+    halt();
+    }
+  
 }
 
-void setForward(unsigned long runtime){motors.setPWM( 25.0, 25.0 );}
+//==========================================================================================================================================================================
+
+
+//Forwards
+void setForward(unsigned long runtime){
+    motors.setPWM( 50.0, 50.0 );
+    forwardInterrupt = millis() + runtime;
+    movingForward = true;
+    Serial.println("Going Forward"); 
+  }
+
+boolean checkForward(){
+  if (millis() > forwardInterrupt){
+      halt();
+      Serial.println("Stopped");
+      return false;
+    }
+  else {
+      return true;}  
+  }
+
+
+//Stop
+void halt(){
+    motors.setPWM(0,0);
+  }
+
+
+//Break Loop
+boolean cease() {
+  if (millis() > haltTime) {
+      return true;
+    }
+  else {
+      return false;} 
+  }
+
+//Turning
+void setTurn(unsigned long runtime){
+   motors.setPWM(50.0,-50.0);
+   turnInterrupt = millis() + runtime;
+   turning = true;
+   Serial.println("Turning");
+   
+  }
+
+boolean checkTurn() {
+  if (millis() > turnInterrupt) {
+      halt();
+      return false;
+    }
+  else {
+    return true;
+    }
+  
+  }
